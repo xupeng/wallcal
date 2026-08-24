@@ -1,0 +1,105 @@
+:root {
+  font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  color: #20352f;
+  background: #eeeae2;
+  font-synthesis: none;
+  --ink: #20352f;
+  --muted: #687870;
+  --line: #bec9c2;
+  --paper: #fffef9;
+  --red: #b94445;
+  --holiday: #fbeceb;
+  --purple: #735d8f;
+  --term: #f1edf7;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.toolbar {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px max(20px, calc((100vw - 210mm) / 2));
+  color: white;
+  background: rgba(27, 49, 43, .96);
+  box-shadow: 0 3px 18px rgba(24, 35, 32, .18);
+  backdrop-filter: blur(12px);
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+  display: grid; place-items: center; width: 34px; height: 34px;
+  border: 1px solid rgba(255,255,255,.55); border-radius: 50%; font-family: serif;
+}
+.brand strong, .brand small { display: block; }
+.brand small { margin-top: 2px; color: #bdcbc5; font-size: 10px; letter-spacing: .16em; }
+.actions { display: flex; align-items: center; gap: 9px; font-size: 12px; }
+select, button {
+  border: 1px solid rgba(255,255,255,.35); border-radius: 6px; font: inherit;
+}
+select { padding: 7px 28px 7px 10px; color: white; background: #29483f; }
+button { padding: 8px 14px; color: #20352f; background: #f0d9a9; cursor: pointer; font-weight: 650; }
+
+#calendar { padding: 30px 0; }
+.month-page {
+  display: grid;
+  grid-template-rows: 29mm 9mm 1fr 7mm;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto 30px;
+  padding: 13mm 13mm 10mm;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 10px 40px rgba(32, 53, 47, .15);
+}
+.month-header { display: flex; align-items: flex-start; justify-content: space-between; }
+.month-title { display: flex; align-items: baseline; gap: 4mm; }
+.month-title > span:last-child { color: #53665f; font-family: "Songti SC", SimSun, serif; font-size: 16px; letter-spacing: .25em; }
+.month-number { font: 300 58px/1 "Helvetica Neue", Arial, sans-serif; letter-spacing: -.06em; }
+.year-title { display: flex; flex-direction: column; align-items: flex-end; padding-top: 3mm; color: var(--muted); font-size: 11px; letter-spacing: .14em; }
+.year-title strong { color: var(--ink); font: 500 25px/1.2 "Helvetica Neue", Arial, sans-serif; letter-spacing: .12em; }
+
+.weekday-row, .days-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.weekday-row { border-bottom: 1.2px solid var(--ink); }
+.weekday-row div { padding: 2mm 2.3mm; font-size: 10px; font-weight: 600; letter-spacing: .15em; }
+.weekday-row .weekend { color: var(--red); }
+.days-grid { grid-template-rows: repeat(var(--rows), 1fr); min-height: 0; border-left: 1px solid var(--line); }
+.day { position: relative; min-width: 0; padding: 2.3mm; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.18); }
+.day.is-holiday { background: var(--holiday); }
+.day.is-term { background: var(--term); }
+.day.is-holiday.is-term { background: linear-gradient(135deg, var(--holiday) 0 52%, var(--term) 52% 100%); }
+.day.is-blank { background: #f7f6f1; }
+.day-top { display: flex; align-items: baseline; justify-content: space-between; gap: 2px; }
+.solar-day { font: 500 18px/1 "Helvetica Neue", Arial, sans-serif; }
+.lunar { overflow: hidden; color: var(--muted); font-size: 9px; white-space: nowrap; }
+.day-notes { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2mm; margin-top: 2mm; font-size: 8.5px; line-height: 1.25; }
+.term-label { color: var(--purple); font-weight: 650; }
+.holiday-label { color: var(--red); font-weight: 650; }
+.work-label, .month-footer b { display: inline-grid; place-items: center; width: 3.8mm; height: 3.8mm; border: 1px solid #73827c; border-radius: 50%; color: #61716b; font-size: 8px; font-weight: 500; }
+.is-today .solar-day { display: inline-grid; place-items: center; width: 7mm; height: 7mm; margin: -1.5mm; border-radius: 50%; color: white; background: var(--ink); }
+
+.month-footer { display: flex; align-items: flex-end; gap: 5mm; color: var(--muted); font-size: 8.5px; letter-spacing: .05em; }
+.month-footer span { display: flex; align-items: center; gap: 1.3mm; }
+.legend { display: inline-block; width: 4mm; height: 4mm; border: 1px solid rgba(0,0,0,.04); border-radius: 1mm; }
+.legend.holiday { background: var(--holiday); }
+.legend.term { background: var(--term); }
+
+@media (max-width: 850px) {
+  .toolbar { padding-inline: 14px; }
+  .brand small, .actions > label { display: none; }
+  #calendar { padding: 15px 0; overflow: auto; }
+  .month-page { transform-origin: top left; }
+}
+
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  :root { background: white; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .toolbar { display: none; }
+  #calendar { padding: 0; }
+  .month-page { margin: 0; box-shadow: none; break-after: page; page-break-after: always; }
+  .month-page:last-child { break-after: auto; page-break-after: auto; }
+  .is-today .solar-day { display: inline; width: auto; height: auto; margin: 0; color: inherit; background: transparent; }
+}

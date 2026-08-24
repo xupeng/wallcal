@@ -1,0 +1,22 @@
+{
+  "name": "wallcal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "pdf": "node scripts/export-pdf.js"
+  },
+  "dependencies": {
+    "chinese-days": "1.5.9"
+  },
+  "devDependencies": {
+    "vite": "7.3.6"
+  }
+}

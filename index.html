@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="适合 A4 竖版打印的中国月历" />
+    <title>墙上月历</title>
+  </head>
+  <body>
+    <header class="toolbar" aria-label="月历工具栏">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">日</span>
+        <div><strong>墙上月历</strong><small>留给生活一点空白</small></div>
+      </div>
+      <div class="actions">
+        <label for="year">年份</label>
+        <select id="year" aria-label="选择年份"></select>
+        <button id="print" type="button">打印 / 导出 PDF</button>
+      </div>
+    </header>
+    <main id="calendar" aria-live="polite"></main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
