@@ -28,7 +28,7 @@ Environment and output:
 
 - `CHROME_PATH` is optional and, when present, must point to an executable browser.
 - The PDF command requires `dist/index.html` from `npm run build`.
-- Every month is one `210mm × 297mm` portrait page; print controls must be hidden.
+- Every month is one `210mm × 297mm` portrait page with an 8 mm internal safe area; print controls must be hidden.
 - Ephemeral screen state such as the “today” circle must reset to ordinary date styling in print; printed calendars must not become visually stale the next day.
 
 ### 4. Validation & Error Matrix

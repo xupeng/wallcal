@@ -50,7 +50,7 @@ button { padding: 8px 14px; color: #20352f; background: #f0d9a9; cursor: pointer
   width: 210mm;
   height: 297mm;
   margin: 0 auto 30px;
-  padding: 13mm 13mm 10mm;
+  padding: 8mm;
   overflow: hidden;
   background: var(--paper);
   box-shadow: 0 10px 40px rgba(32, 53, 47, .15);
