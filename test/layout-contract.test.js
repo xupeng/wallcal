@@ -40,3 +40,8 @@ test('screen-only toolbar branding stays present', () => {
   assert.match(markup, /class="brand-mark"/);
   assert.match(styles, /@media print[\s\S]+\.toolbar \{ display: none; \}/);
 });
+
+test('weekend dates and adjusted-workday badges use the calendar red', () => {
+  assert.match(styles, /\.day:nth-child\(7n \+ 6\) \.solar-day,[\s\S]+\.day:nth-child\(7n\) \.solar-day \{ color: var\(--red\); \}/);
+  assert.match(styles, /\.work-label, \.month-footer b \{[^}]+border: 1px solid var\(--red\);[^}]+color: var\(--red\);/);
+});

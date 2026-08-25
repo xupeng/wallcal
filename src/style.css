@@ -68,6 +68,8 @@ button { padding: 8px 14px; color: #20352f; background: #f0d9a9; cursor: pointer
 .weekday-row .weekend { color: var(--red); }
 .days-grid { grid-template-rows: repeat(var(--rows), 1fr); min-height: 0; border-left: 1px solid var(--line); }
 .day { position: relative; min-width: 0; padding: 2.3mm; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.18); }
+.days-grid .day:nth-child(7n + 6) .solar-day,
+.days-grid .day:nth-child(7n) .solar-day { color: var(--red); }
 .day.is-holiday { background: var(--holiday); }
 .day.is-term { background: var(--term); }
 .day.is-holiday.is-term { background: linear-gradient(135deg, var(--holiday) 0 52%, var(--term) 52% 100%); }
@@ -78,7 +80,7 @@ button { padding: 8px 14px; color: #20352f; background: #f0d9a9; cursor: pointer
 .day-notes { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2mm; margin-top: 2mm; font-size: 8.5px; line-height: 1.25; }
 .term-label { color: var(--purple); font-weight: 650; }
 .holiday-label { color: var(--red); font-weight: 650; }
-.work-label, .month-footer b { display: inline-grid; place-items: center; width: 3.8mm; height: 3.8mm; border: 1px solid #73827c; border-radius: 50%; color: #61716b; font-size: 8px; font-weight: 500; }
+.work-label, .month-footer b { display: inline-grid; place-items: center; width: 3.8mm; height: 3.8mm; border: 1px solid var(--red); border-radius: 50%; color: var(--red); font-size: 8px; font-weight: 500; }
 .is-today .solar-day { display: inline-grid; place-items: center; width: 7mm; height: 7mm; margin: -1.5mm; border-radius: 50%; color: white; background: var(--ink); }
 
 .month-footer { display: flex; align-items: flex-end; gap: 5mm; color: var(--muted); font-size: 8.5px; letter-spacing: .05em; }
